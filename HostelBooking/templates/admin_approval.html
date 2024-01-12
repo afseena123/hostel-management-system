@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Approval</title>
+  <!-- Include any necessary CSS or stylesheets here -->
+</head>
+<body>
+
+
+  
+  <h1>Admin Approval</h1>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Hostel Name</th>
+        <th>License Number</th>
+        <th>Owner Name</th>
+        <th>Address</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for hostel in unapproved_hostels %}
+        <tr>
+          <td>{{ hostel.hostel_name }}</td>
+          <td>{{ hostel.licence_number }}</td>
+          <td>{{ hostel.owner_name }}</td>
+          <td>{{ hostel.address }}</td>
+          <td>
+            
+            <form method="post" action="{% url 'approve_hostel' hostel.id %}">
+              {% csrf_token %}
+              <input type="submit" value="Approve">
+            </form>
+
+
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html> 
+

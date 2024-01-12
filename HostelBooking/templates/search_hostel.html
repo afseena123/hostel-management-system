@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Hostel by District</title>
+    <!-- Add your CSS links or styles here -->
+</head>
+<body>
+    <h1>Search Hostel by District</h1>
+
+    <form method="POST" action="{% url 'search_by_district' %}">
+        {% csrf_token %}
+        <label for="district">Enter District:</label>
+        <input type="text" id="district" name="district" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Display any search-related messages or errors here -->
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    <!-- Add your additional content or scripts here -->
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Available Rooms and Beds</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Available Rooms and Beds</h1>
+    <h2>Available Rooms:</h2>
+    <table>
+        <tr>
+            <th>Room ID</th>
+            <th>Room Name</th>
+            <th>Block</th>
+            <th>Room Type</th>
+            <th>Number of Beds</th>
+            <th>Facilities</th>
+            <th>action</th>
+        </tr>
+        {% for room in available_rooms %}
+        <tr>
+            <td>{{ room.roomid }}</td>
+            <td>{{ room.roomname }}</td>
+            <td>{{ room.blockid.blockname }}</td>
+            <td>{{ room.roomtypeid.typename }}</td>
+            <td>{{ room.noofbeds }}</td>
+            <td>{{ room.facilities }}</td>
+            <td><a href="{% url 'beddetails' room_id=room.roomid %}">BedDetails</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+<!-- Your HTML code -->
+
+
+   
+   
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Rooms and Beds</title>
+    <style>
+        body {
+            background-color: #e9e9f1; /* Set your desired background color */
+            font-family: Arial, sans-serif; /* Optionally set the font-family */
+        }
+
+        /* Your existing table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #750b0b;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'search_by_district' %}" class="btn btn-theme toggle">Search By District</a>
+    <h1>Available Rooms and Beds</h1>
+    <h2>Available Rooms:</h2>
+    <table>
+        <tr>
+            <th>Room ID</th>
+            <th>Room Name</th>
+            <th>Block</th>
+            <th>Room Type</th>
+            <th>Number of Beds</th>
+            <th>Facilities</th>
+            <th>Action</th>
+        </tr>
+        {% for room in available_rooms %}
+        <tr>
+            <td>{{ room.roomid }}</td>
+            <td>{{ room.roomname }}</td>
+            <td>{{ room.blockid.blockname }}</td>
+            <td>{{ room.roomtypeid.typename }}</td>
+            <td>{{ room.noofbeds }}</td>
+            <td>{{ room.facilities }}</td>
+            <td><a href="{% url 'beddetails' room_id=room.roomid %}">BedDetails</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <!-- Your HTML code -->
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Form</title>
+    <!-- Add any necessary CSS or other headers here -->
+</head>
+<body>
+    <h1>Booking Form</h1>
+    <h2>Room Details</h2>
+    <p>Room Number: {{ room.room_number }}</p>
+    <p>Room Number: {{ room.room_name }}</p>
+    <p>Room Number: {{ room.room_blockid }}</p>
+    <p>Room Number: {{ room.room_roomtypeid }}</p>
+    <p>Room Number: {{ room.room_facilities }}</p>
+    <p>Room Number: {{ room.room_noofbeds }}</p>
+    <!-- Display other room details using the room object -->
+    
+    <h2>Available Rooms</h2>
+    <!-- Display a list of available rooms -->
+    <ul>
+        {% for r in room_types %}
+            <li>{{ r.room_roomid }}</li>
+            <li>{{ r.room_roomname }}</li>
+            <li>{{ r.room_blockid }}</li>
+            <li>{{ r.room_roomtypeid }}</li>
+            <li>{{ r.room_facilities }}</li>
+            <li>{{ r.room_noofbeds}}</li>
+            
+            
+            <!-- Display other room details as needed -->
+        {% endfor %}
+    </ul>
+
+    <!-- Your booking form -->
+    <form method="post">
+        {% csrf_token %}
+        <label for="check_in_date">Check-in Date:</label>
+        <input type="date" id="check_in_date" name="check_in_date" required><br>
+
+        <label for="check_out_date">Check-out Date:</label>
+        <input type="date" id="check_out_date" name="check_out_date" required><br>
+
+        <input type="submit" value="Book">
+    </form>
+</body>
+</html>

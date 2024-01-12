@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule Room Visit</title>
+    <!-- Add your CSS or stylesheets if needed -->
+</head>
+<body>
+    <h2>Schedule a Room Visit</h2>
+    <form method="post" action="{% url 'schedule_room_visit' %}">
+        {% csrf_token %}
+        <label for="customer_name">Customer Name:</label><br>
+        <input type="text" id="customer_name" name="customername" required><br><br>
+        
+        <label for="visit_date">Visit Date:</label><br>
+        <input type="date" id="visit_date" name="visit_date" required><br><br>
+        
+        <!-- Add other necessary form fields -->
+        
+        <input type="submit" value="Schedule Visit">
+    </form>
+</body>
+</html>

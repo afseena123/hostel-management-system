@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <!-- Add your CSS links or styles here -->
+</head>
+<body>
+    <h1>Search Results</h1>
+
+    {% if hostels %}
+        <ul>
+            {% for hostel in hostels %}
+                <li>
+                    <h2>{{ hostel.hostelname }}</h2>
+                    <p><strong>Address:</strong> {{ hostel.address }}</p>
+                    
+                    <p><strong>District:</strong> {{ hostel.district }}</p>
+
+                   
+
+
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hostels found for the given district.</p>
+    {% endif %}
+
+    <!-- Add your additional content or scripts here -->
+</body>
+</html>

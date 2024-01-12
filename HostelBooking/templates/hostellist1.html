@@ -1,0 +1,75 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hostel List</title>
+</head>
+<body>
+  <h1>Hostel List</h1>
+  <ul>
+    {% for hostel in hostels %}
+      <li>hostelname: {{ hostel.hostelname }}, Address: {{ hostel.Address }}, phone: {{ hostel.phone }}, email: {{ hostel.email }}, num_of_beds: {{ hostel.num_od_beds }},image: {{ hostel.image }}</li>
+      <!-- Display other hostel details as needed -->
+    <!-- {% endfor %} -->
+  </ul>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hostel List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .hostel-item {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .hostel-item h2 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .hostel-details {
+      margin-bottom: 10px;
+    }
+
+    .hostel-details span {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hostel List</h1>
+  
+  {% for hostel in hostels %}
+    <div class="hostel-item">
+      <h2>{{ hostel.hostelname }}</h2>
+      <div class="hostel-details">
+        <span>Address:</span> {{ hostel.Address }}<br>
+        <span>Phone:</span> {{ hostel.phone }}<br>
+        <span>Email:</span> {{ hostel.email }}<br>
+        <span>Number of Beds:</span> {{ hostel.num_od_beds }}<br>
+        <!-- Add styling for the image if needed -->
+        <span>Image:</span> <img src="{{ hostel.image }}" alt="Hostel Image">
+      </div>
+    </div>
+  {% endfor %}
+</body>
+</html>

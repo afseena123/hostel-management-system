@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Room Details in Hostel</title>
+</head>
+<body>
+    <h1>Display Room Details in Hostel</h1>
+
+    <form method="GET" action="{% url 'display_hostel_room_details' %}">
+        <label for="hostel_select">Select a Hostel:</label>
+        <select name="hostel_select" id="hostel_select">
+            {% for hostel in hostels %}
+                <option value="{{ hostel.hostelid }}">{{ hostel.hostelname }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Show Rooms</button>
+    </form>
+
+    <!-- Display Room Details -->
+    {% if hostel_room_details %}
+        <h2>Room Details</h2>
+        {% for details in hostel_room_details %}
+            <h3>{{ details.hostel.hostelname }} Rooms:</h3>
+            {% for room in details.rooms %}
+                <p>Room Name: {{ room.roomname }}</p>
+                <p>Facilities: {{ room.facilities }}</p>
+                <p>Number of Beds: {{ room.noofbeds }}</p>
+                <hr>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

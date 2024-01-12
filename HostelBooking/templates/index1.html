@@ -1,0 +1,183 @@
+
+
+
+<!--
+=========================================================
+* Material Dashboard 2 - v3.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard
+* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Hostel - Admin Panel</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+  <div style="max-width: 600px; margin: 50px auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <h1>Add New Hostel</h1>
+    <form action="/add-hostel" method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column;">
+      <!-- Hostel Name -->
+      <div style="margin-bottom: 20px;">
+        <label for="hostelName" style="font-weight: bold;">Hostel Name:</label>
+        <input type="text" id="hostelName" name="hostelName" required style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+      </div>
+      
+      <!-- Hostel Location -->
+      <div style="margin-bottom: 20px;">
+        <label for="hostelLocation" style="font-weight: bold;">Location:</label>
+        <input type="text" id="hostelLocation" name="hostelLocation" required style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+      </div>
+
+      <!-- Owner Name -->
+      <div style="margin-bottom: 20px;">
+        <label for="ownerName" style="font-weight: bold;">Owner Name:</label>
+        <input type="text" id="ownerName" name="ownerName" required style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+      </div>
+      
+      <!-- Hostel Facilities -->
+      <div style="margin-bottom: 20px;">
+        <label for="hostelFacilities" style="font-weight: bold;">Facilities:</label>
+        <textarea id="hostelFacilities" name="hostelFacilities" rows="4" required style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; resize: vertical;"></textarea>
+      </div>
+      
+      <!-- Hostel License Number -->
+      <div style="margin-bottom: 20px;">
+        <label for="hostelLicense" style="font-weight: bold;">License Number:</label>
+        <input type="text" id="hostelLicense" name="hostelLicense" required style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+      </div>
+      
+      <!-- Hostel Images -->
+      <div style="margin-bottom: 20px;">
+        <label for="hostelImages" style="font-weight: bold;">Upload Images:</label>
+        <input type="file" id="hostelImages" name="hostelImages" accept="image/*" multiple style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+      </div>
+
+      <!-- Approved Checkbox -->
+      <div style="margin-bottom: 20px;">
+        <input type="checkbox" id="isApproved" name="isApproved" style="margin-right: 5px;">
+        <label for="isApproved" style="font-weight: bold;">Approved</label>
+      </div>
+      
+      <!-- Submit Button -->
+      <div>
+        <input type="submit" value="Add Hostel" style="width: 100%; padding: 8px; border-radius: 5px; border: none; background-color: #007bff; color: #fff; cursor: pointer;">
+      </div>
+    </form>
+
+    <!-- Button to Show/Hide Hostel List -->
+    <button onclick="toggleHostelList()">Show Hostel List</button>
+    
+    <!-- List of Registered Hostels (Initially Hidden) -->
+    <div id="hostelList" style="margin-top: 20px; display: none;">
+      <h2>List of Registered Hostels</h2>
+      <ul id="registeredHostels">
+        <!-- Hostel entries will be dynamically added here -->
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function toggleHostelList() {
+      var hostelList = document.getElementById("hostelList");
+      if (hostelList.style.display === "none") {
+        hostelList.style.display = "block";
+        // In a real application, fetch registered hostels from the backend and populate the list dynamically
+        var registeredHostels = [
+          { name: "Hostel ABC", location: "Location 1", license: "ABC123", owner: "John Doe", approved: false },
+          { name: "Hostel XYZ", location: "Location 2", license: "XYZ789", owner: "Jane Smith", approved: true }
+          // Add more hostel entries dynamically based on your backend data
+        ];
+        var listHTML = "";
+        registeredHostels.forEach(function(hostel) {
+          listHTML += "<li>" + hostel.name + " - " + hostel.location + " - License: " + hostel.license + " - Owner: " + hostel.owner + " <input type='checkbox' " + (hostel.approved ? "checked" : "") + " disabled> Approved <button onclick='approveHostel(\"" + hostel.name + "\")'>Approval</button></li>";
+        });
+        document.getElementById("registeredHostels").innerHTML = listHTML;
+      } else {
+        hostelList.style.display = "none";
+      }
+    }
+
+    function approveHostel(name) {
+      alert("Hostel '" + name + "' approved!"); // This is just an example, in a real app, you'd perform backend actions here.
+      // You might want to update the status of the hostel in the backend or perform other actions upon approval.
+    }
+  </script>
+
+<title>Student Enrollment - Admin Panel</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+  <div style="max-width: 600px; margin: 50px auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <h1>Student Enrollment</h1>
+    <form action="/enroll-student" method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column;">
+      <!-- Student Name -->
+      <div style="margin-bottom: 20px;">
+        <label for="studentName" style="font-weight: bold;">Student Name:</label>
+        <input type="text" id="studentName" name="studentName" required style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+      </div>
+      
+      <!-- Date of Birth -->
+      <div style="margin-bottom: 20px;">
+        <label for="dateOfBirth" style="font-weight: bold;">Date of Birth:</label>
+        <input type="date" id="dateOfBirth" name="dateOfBirth" required style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+      </div>
+      
+      <!-- Email -->
+      <div style="margin-bottom: 20px;">
+        <label for="email" style="font-weight: bold;">Email:</label>
+        <input type="email" id="email" name="email" required style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+      </div>
+      
+      <!-- Contact Number -->
+      <div style="margin-bottom: 20px;">
+        <label for="contactNumber" style="font-weight: bold;">Contact Number:</label>
+        <input type="tel" id="contactNumber" name="contactNumber" required pattern="[0-9]{10}" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+        <small>Format: 10 digits (no spaces or special characters)</small>
+      </div>
+      
+      <!-- Address -->
+      <div style="margin-bottom: 20px;">
+        <label for="address" style="font-weight: bold;">Address:</label>
+        <textarea id="address" name="address" rows="4" required style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; resize: vertical;"></textarea>
+      </div>
+      
+      <!-- Program of Study -->
+      <div style="margin-bottom: 20px;">
+        <label for="programOfStudy" style="font-weight: bold;">Program of Study:</label>
+        <select id="programOfStudy" name="programOfStudy" required style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+          <option value="">Select Program</option>
+          <option value="Computer Science">Computer Science</option>
+          <option value="Business Administration">Business Administration</option>
+          <!-- Add more program options as needed -->
+        </select>
+      </div>
+      
+      <!-- Upload Documents -->
+      <div style="margin-bottom: 20px;">
+        <label for="documents" style="font-weight: bold;">Upload Documents:</label>
+        <input type="file" id="documents" name="documents" multiple accept=".pdf,.doc,.docx" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+        <small>Allowed formats: PDF, DOC, DOCX</small>
+      </div>
+      
+      <!-- Submit Button -->
+      <div>
+        <input type="submit" value="Enroll Student" style="width: 100%; padding: 8px; border-radius: 5px; border: none; background-color: #007bff; color: #fff; cursor: pointer;">
+      </div>
+    </form>
+  </div>
+
+
+
+</body>
+</html>

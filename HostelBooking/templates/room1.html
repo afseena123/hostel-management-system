@@ -1,0 +1,44 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+
+</head>
+<body>
+    <tbody>
+        {%for i in ct}
+        <tr class="text-center">
+          <td class="roomid">
+            <h3>{{i.roomid}}</h3>
+          </td>
+          <td class="roomname">
+            <h3>{{i.roomname}}</h3>
+          </td>
+          <td class="blockid">
+            <h3>{{i.blockid}}</h3>
+          </td>
+          <td class="roomtypeid">
+            <h3>{{i.roomtypeid}}</h3>
+          </td>
+          <td class="facilities">
+            <h3>{{i.facilities}}</h3>
+          </td>
+          <td class="noofbeds">
+            <h3>{{i.noofbeds}}</h3>
+          </td>
+        </tr>
+        {% endfor %}  
+
+
+
+
+</body>
+</html>

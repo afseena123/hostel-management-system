@@ -1,0 +1,27 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Details</title>
+</head>
+<body>
+    <h1>Booking Details</h1>
+    
+<ul>
+    {% for key, value in booking_details.items %}
+        <li>{{ key }}: {{ value }}</li>
+    {% endfor %}
+</ul>
+
+    <ul>
+        {% for booking in bookings %}
+            <li>Booking ID: {{ booking.bookingid }}</li>
+            <li>Booking Date: {{ booking.booking_date }}</li>
+            <li>Vacate Date: {{ booking.vacate_date }}</li>
+            <li>Total Amount: {{ booking.total_amount }}</li>
+            
+
+
+        {% endfor %}
+    </ul>
+</body>
+</html> 

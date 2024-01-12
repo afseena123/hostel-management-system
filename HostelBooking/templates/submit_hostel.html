@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit Hostel Details</title>
+  <!-- Include any necessary CSS or stylesheets here -->
+</head>
+<body>
+  <h1>Submit Hostel Details</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- Display form errors if any -->
+    {% if form.errors %}
+      <ul>
+        {% for field in form %}
+          {% for error in field.errors %}
+            <li>{{ error }}</li>
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <!-- Hostel details form fields -->
+    <div>
+      <label for="hostel_name">Hostel Name:</label>
+      <input type="text" id="hostel_name" name="hostel_name" required>
+    </div>
+    <div>
+      <label for="licence_number">License Number:</label>
+      <input type="text" id="licence_number" name="licence_number" required>
+    </div>
+    <div>
+      <label for="owner_name">Owner Name:</label>
+      <input type="text" id="owner_name" name="owner_name" required>
+    </div>
+    <div>
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" required>
+    </div>
+
+
+    
+
+   <div>
+      <label for="room_type">Room_Type:</label>
+      <input type="text" id="room_type" name="room_type" required>
+    </div>
+
+   
+
+    <div>
+        <input type="checkbox" id="approved" name="approved">
+        <label for="approved">Approval</label>
+      </div>
+
+    <p>After submission, click <a href="{% url 'AdminApproval' %}">here</a> to go to the admin approval page.</p>
+  
+  </form>
+</body>
+</html>

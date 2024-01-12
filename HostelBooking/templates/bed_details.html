@@ -1,0 +1,113 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Bed Details</title>
+</head>
+<body>
+    <h1>Bed Details for Room: {% if beds %}{{ beds.0.roomid.roomname }}{% endif %}</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Bed ID</th>
+                <th>Bed Name</th>
+                <th>Room ID</th>
+                <th>Room Name</th>
+                <th>Cost</th>
+                <th>Availability</th>
+                <th>action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for bed in beds %}
+            <tr>
+                <td>{{ bed.bedid }}</td>
+                <td>{{ bed.bedname }}</td>
+                <td>{{ bed.roomid.roomid }}</td>
+                <td>{{ bed.roomid.roomname }}</td>
+                <td>{{ bed.cost }}</td>
+                <td>{{ bed.availability }}</td>
+                <td><a href="{% url 'booknow' room_id=bed.roomid_id %}">Booknow</a></td>
+                
+
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bed Details</title>
+    <style>
+        /* Styling for the body */
+        body {
+            background-color: #bbb6b6; /* Set your preferred background color */
+            font-family: Arial, sans-serif; /* Set your preferred font family */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Styling for the table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            border: 1px solid #1f094b; /* Set border color */
+            padding: 8px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #f5f5f5; /* Set background color for table header */
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9; /* Set alternate row background color */
+        }
+
+        /* Styling for the action link */
+        table td a {
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+   
+    <h1>Bed Details for Room: {% if beds %}{{ beds.0.roomid.roomname }}{% endif %}</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Bed ID</th>
+                <th>Bed Name</th>
+                <th>Room ID</th>
+                <th>Room Name</th>
+                <th>Cost</th>
+                <th>Availability</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bed in beds %}
+            <tr>
+                <td>{{ bed.bedid }}</td>
+                <td>{{ bed.bedname }}</td>
+                <td>{{ bed.roomid.roomid }}</td>
+                <td>{{ bed.roomid.roomname }}</td>
+                <td>{{ bed.cost }}</td>
+                <td>{{ bed.availability }}</td>
+                <td><a href="{% url 'booknow' room_id=bed.roomid_id %}">Book Now</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

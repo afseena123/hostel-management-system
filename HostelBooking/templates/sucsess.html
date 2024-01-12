@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Success</title>
+</head>
+<body>
+    <h1>Booking Successful!</h1>
+
+    <h2>Booking Details:</h2>
+    <ul>
+        <li><strong>Booking ID:</strong> {{ booking.booking_id }}</li>
+        <li><strong>Booking Date:</strong> {{ booking.booking_date }}</li>
+        <li><strong>Vacate Date:</strong> {{ booking.vacate_date }}</li>
+        <li><strong>Customer ID:</strong> {{ booking.customerid }}</li>
+        <li><strong>Bed ID:</strong> {{ booking.bedid }}</li>
+        <li><strong>Total Amount:</strong> {{ booking.total_amount }}</li>
+        <!-- Add other booking details here -->
+    </ul>
+
+    <!-- Optionally, provide a link to go back or take other actions -->
+    <a href="{% url 'loadindex' %}">Go Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,59 @@
+
+    
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .confirmation-message {
+            margin-bottom: 20px;
+        }
+        .pay-now-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .pay-now-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Confirmation</title>
+    <!-- Add your styles or CSS -->
+</head>
+<body>
+    <h1>Booking Confirmed!</h1>
+    
+    {% if room and bed %}
+        <p>Thank you for your booking. Your reservation has been confirmed for Room: {{ room.roomname }}.</p>
+        <p>Room ID: {{ room.id }}</p>
+        <p>Bed ID: {{ bed.id }}</p>
+        <!-- Additional details or messages -->
+        <!-- <a href="{% url 'payment_process' room_id=room.id bed_id=bed.id %}" class="pay-now-button">Pay Now</a> -->
+        <a href="{% url 'room_booking_payment' %}">Pay Now</a>
+    {% else %}
+        <p>pay now</p>
+    {% endif %}
+    
+    <!-- Other content, styles, etc. -->
+</body>
+</html>
+
+</body>
+</html>

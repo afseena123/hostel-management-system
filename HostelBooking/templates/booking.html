@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bookings</title>
+</head>
+<body>
+
+<h1>Bookings</h1>
+
+{% if customer %}
+    <p>Welcome, {{ customer.first_name }}!</p>
+
+    {% if bookings %}
+        <ul>
+        {% for booking in bookings %}
+            <li>
+                Booking ID: {{ booking.bookingid }} <br>
+                Booking Date: {{ booking.booking_date }} <br>
+                Vacate Date: {{ booking.vacate_date }} <br>
+                Total Amount: {{ booking.total_amount }} <br>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No bookings found for this customer.</p>
+    {% endif %}
+
+{% else %}
+    <p>No customer found.</p>
+{% endif %}
+
+</body>
+</html>

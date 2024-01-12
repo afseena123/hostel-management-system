@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Room</title>
+</head>
+<body>
+    <h1>Book Room</h1>
+
+    <h2>Selected Bed Details:</h2>
+    <p>Bed Name: {{ selected_BedDetails.bedname }}</p>
+    <p>Bed ID: {{ selected_BedDetails.roomid }}</p>
+    <p>Cost: {{ selected_Beddetails.cost.cost }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ booking_form.as_p }}
+
+        <input type="submit" value="Book Room">
+    </form>
+</body>
+</html>

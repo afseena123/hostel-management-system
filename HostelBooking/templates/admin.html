@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Panel</h1>
+   
+    <a href="{% url 'get_hostel_list' %}" class="btn btn Theme toggle">Hostel List</a>
+    <a href="{% url 'HostelSubmission' %}" class="btn btn Theme toggle">AdminApproval</a>
+    <a href="{% url 'view_students' %}" class="btn btn Theme toggle">Manage students</a>
+      <button onclick="manageStudents()">Manage Students</button>
+      <button onclick="viewStudentFeedbacks()">View Student Feedbacks</button>
+      <button onclick="manageHostelDetails()">Manage Hostel Details & Payments</button>
+      <button onclick="viewAllBookings()">View All Bookings</button>
+      <button onclick="changePassword()">Change Password</button>
+    </div>
+  </div>
+
+  <script>
+    function viewHostelDetails() {
+      // Implement functionality for viewing hostel details
+      console.log('View Hostel Details');
+    }
+
+    // Other button functions go here...
+
+    function changePassword() {
+      // Implement functionality for changing password
+      console.log('Change Password');
+    }
+  </script>
+</body>
+</html>

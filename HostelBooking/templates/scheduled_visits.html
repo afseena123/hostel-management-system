@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scheduled Visits</title>
+    <!-- Add your CSS or stylesheets if needed -->
+</head>
+<body>
+    <h2>Scheduled Visits</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer Name</th>
+                <th>Visit Date</th>
+                <!-- Add other table headers as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for visit in scheduled_visits %}
+                <tr>
+                    <td>{{ visit.customer_name }}</td>
+                    <td>{{ visit.visit_date }}</td>
+                    <!-- Add other table data fields corresponding to your RoomVisit model -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

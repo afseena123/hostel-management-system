@@ -1,0 +1,110 @@
+<!-- <!DOCTYPE html>
+<html>
+    <body>
+<section class="ftco-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-10 ftco-animate">
+
+
+
+    
+        <form method="post" action="payment" class="Bank checkout form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="account-number">Account Number:</label>
+                <input type="text" id="account_number" name="account_number" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name on Card:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="expiration-month">Expiration month:</label>
+                <input type="text" id="expiry-month" name="expiry_month" required>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required>
+            </div>
+            <a href="{% url 'payment'}" class="btn btn-primary py-3 px-4">Pay</a>
+
+
+            </div>
+    </form>
+</section>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment online</title>
+
+    <style>
+        /* Your CSS styles */
+        body {
+            background-color: #f5f5f5; /* Change the color code to your desired background color */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin: 0 auto;
+            padding: 20px;
+            width: 80%;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        /* Add your own styles for form inputs, labels, and buttons */
+        /* Example:
+        input[type="text"],
+        label {
+            /* Your styles here */
+        }
+        .btn {
+            /* Your button styles */
+        }
+        */
+    </style>
+</head>
+<body>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-10 ftco-animate">
+                    <form method="post" action="{% url 'payment' %}" class="Bank checkout form">
+                        {% csrf_token %}
+                        <h1>Pay with Card </h1>
+                        <div class="form-group">
+                            <label for="account-number">Account Number:</label>
+                            <input type="text" id="account_number" name="account_number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name on Card:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expiration-month">Expiration month:</label>
+                            <input type="text" id="expiry-month" name="expiry_month" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV:</label>
+                            <input type="text" id="cvv" name="cvv" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary py-3 px-4">Pay</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your JavaScript code -->
+    <script>
+        // Your JavaScript logic here
+        // Example: Validation, form submission handling, etc.
+    </script>
+</body>
+</html>
+
